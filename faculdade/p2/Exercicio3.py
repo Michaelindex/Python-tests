@@ -1,12 +1,13 @@
 def dimensoesObjeto():
     while True:
         try:
-            altura = float(input("Digite a altura do objeto (em cm): "))
-            comprimento = float(input("Digite o comprimento do objeto (em cm): "))
-            largura = float(input("Digite a largura do objeto (em cm): "))
+            altura = float(input("Altura do objeto em cm: "))  # Solicita a altura do objeto ao usuário
+            comprimento = float(input("Comprimento do objeto em cm: "))  # Solicita o comprimento do objeto ao usuário
+            largura = float(input("Largura do objeto em cm: "))  # Solicita a largura do objeto ao usuário
             
-            volume = altura * comprimento * largura
+            volume = altura * comprimento * largura  # Calcula o volume do objeto
             
+            # Define o valor com base no volume do objeto
             if volume < 1000:
                 return 10
             elif 1000 <= volume < 10000:
@@ -23,8 +24,9 @@ def dimensoesObjeto():
 def pesoObjeto():
     while True:
         try:
-            peso = float(input("Digite o peso do objeto (em kg): "))
+            peso = float(input("Digite o peso do objeto (em kg): "))  # Solicita o peso do objeto ao usuário
             
+            # Define o multiplicador com base no peso do objeto
             if peso <= 0.1:
                 return 1
             elif 0.1 <= peso < 1:
@@ -48,20 +50,22 @@ def rotaObjeto():
         "RB": 1.5
     }
     
+    print("Rotas disponíveis:")  # Exibe as rotas disponíveis para o usuário
+    for rota, multiplicador in rotas.items():
+        print(f"{rota}: {multiplicador}")
+    
     while True:
-        rota = input("Digite a rota do objeto (Sigla da cidade de origem seguida da cidade de destino): ").upper()
+        rota = input("Digite a rota do objeto (Sigla da cidade de origem seguida da cidade de destino): ").upper()  # Solicita a rota do objeto ao usuário
         
         if rota in rotas:
-            return rotas[rota]
+            return rotas[rota]  # Retorna o multiplicador correspondente à rota escolhida
         else:
             print("Rota não aceita. Tente novamente.")
 
-altura = dimensoesObjeto()
-comprimento = dimensoesObjeto()
-largura = dimensoesObjeto()
-peso = pesoObjeto()
-rota = rotaObjeto()
+altura = dimensoesObjeto()  # Obtém a dimensão do objeto (valor correspondente ao volume)
+peso = pesoObjeto()  # Obtém o peso do objeto (valor correspondente ao multiplicador)
+rota = rotaObjeto()  # Obtém a rota do objeto (valor correspondente ao multiplicador)
 
-total = altura * comprimento * largura * peso * rota
+total = altura * peso * rota  # Calcula o valor total a ser pago
 
-print(f"Valor total a ser pago: R${total:.2f}")
+print(f"Valor total a ser pago: R${total:.2f}")  # Exibe o valor total a ser pago
