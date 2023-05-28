@@ -1,5 +1,5 @@
 
-print("Loja do Johnata suzarte souza (RU:3996609)") # RU: 4039661
+print("Loja do Johnata suzarte souza (RU:3996609)")
 
 valor_unitario = float(input("Digite o valor unitário do produto: "))
 quantidade = int(input("Digite a quantidade do produto: "))
