@@ -1,0 +1,1 @@
+um = int(input("Digite o primeiro numero"))
