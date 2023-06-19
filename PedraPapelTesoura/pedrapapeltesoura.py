@@ -5,5 +5,3 @@ while usr != "win":
     if numeroMaquina == 0:
         numeroMaquina = "Pedra"
     elif numeroMaquina == 1:
-        numeroMaquina = "Papel"
-    else:
