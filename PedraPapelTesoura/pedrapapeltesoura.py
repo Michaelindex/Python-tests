@@ -21,5 +21,3 @@ while usr != "win":
         elif usr == 3:
             usr = "Tesoura"
             break
-        else:
-            print("Numeros de um a três pls...")
