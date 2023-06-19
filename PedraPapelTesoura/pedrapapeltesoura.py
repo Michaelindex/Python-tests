@@ -18,6 +18,3 @@ while usr != "win":
         elif usr == 2:
             usr = "Papel"
             break
-        elif usr == 3:
-            usr = "Tesoura"
-            break
