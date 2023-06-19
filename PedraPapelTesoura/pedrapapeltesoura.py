@@ -7,6 +7,3 @@ while usr != "win":
     elif numeroMaquina == 1:
         numeroMaquina = "Papel"
     else:
-        numeroMaquina = "Tesoura"
-    while True:
-        print("---- VAMOS JOGAR PEDRA PAPEL OU TESOURA ---
