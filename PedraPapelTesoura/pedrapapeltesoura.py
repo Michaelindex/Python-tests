@@ -24,7 +24,7 @@ while usr != "win":
         else:
             print("Numeros de um a três pls...")
 
-    print("Você só saíra daqui se ganhar da maquina")
+    print
     if numeroMaquina == "Pedra" and usr == "Tesoura":
         print("A maquina venceu por escolher", numeroMaquina)
     elif numeroMaquina == "Papel" and usr == "Pedra":
