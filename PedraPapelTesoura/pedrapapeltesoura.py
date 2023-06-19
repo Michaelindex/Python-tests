@@ -23,7 +23,3 @@ while usr != "win":
             break
         else:
             print("Numeros de um a três pls...")
-    if numeroMaquina == "Pedra" and usr == "Tesoura":
-        print("A maquina venceu por escolher", numeroMaquina)
-
-
