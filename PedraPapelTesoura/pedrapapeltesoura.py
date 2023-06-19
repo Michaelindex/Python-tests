@@ -9,6 +9,4 @@ while usr != "win":
     else:
         numeroMaquina = "Tesoura"
     while True:
-        print("---- VAMOS JOGAR PEDRA PAPEL OU TESOURA ----")
-        print(f'1 = Pedra \n2 = Papel \n3 = Tesoura')
-        usr = int(input("Diga um numero de 1 a 3: "))
+        print("---- VAMOS JOGAR PEDRA PAPEL OU TESOURA ---
