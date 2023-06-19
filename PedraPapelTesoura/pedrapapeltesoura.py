@@ -15,6 +15,3 @@ while usr != "win":
         if usr == 1:
             usr = "Pedra"
             break
-        elif usr == 2:
-            usr = "Papel"
-            break
