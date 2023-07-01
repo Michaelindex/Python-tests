@@ -15,4 +15,3 @@ entry.pack()
 button = tk.Button(root, text="Obter Dados", command=obter_dados)
 button.pack()
 
-root.mainloop()
