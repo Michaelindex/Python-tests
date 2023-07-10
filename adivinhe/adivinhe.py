@@ -5,10 +5,10 @@ comp = random.randint(0,101)
 
 print(comp)
 while usr != comp:
-    usr = int(input("Numero errado, digite o numero novamente"))
+    usr = int(input("Numero errado, digite o numero novamente: "))
     if usr > comp:
         print("Um pouco menos")
-    elif comp < usr:
+    else:
         print("Um pouco mais")
 
 print("BUENA MANITO")
