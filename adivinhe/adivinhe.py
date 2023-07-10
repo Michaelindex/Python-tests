@@ -1,12 +1,19 @@
 import random
-usr = int(input("Digite um numero de 1 a 100: "))
-comp = random.randint(0,101)
 
-while usr != comp:
-    usr = int(input("Numero errado, digite o numero novamente: "))
-    if usr > comp:
-        print("Um pouco menos")
-    else:
-        print("Um pouco mais")
+def adivinhar_numero():
+    comp = random.randint(1, 100)
+    tentativas = 0
 
-print("BOAA")
+    while True:
+        usr = int(input("Digite um número de 1 a 100: "))
+        tentativas += 1
+
+        if usr > comp:
+            print("Um pouco menos")
+        elif usr < comp:
+            print("Um pouco mais")
+        else:
+            print("BOAA! Você acertou em", tentativas, "tentativa(s)!")
+            break
+
+adivinhar_numero()
