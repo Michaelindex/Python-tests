@@ -11,4 +11,4 @@ while usr != comp:
     else:
         print("Um pouco mais")
 
-print("BUENA MANITO")
+print("BOAA")
