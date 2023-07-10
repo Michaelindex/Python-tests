@@ -28,7 +28,7 @@ def adivinhar_numero():
     instrucao_label = tk.Label(janela, text="Digite um número de 1 a 100:")
     instrucao_label.pack()
 
-    entry = tk.Entry(janela, width=20)  # Aumenta o tamanho da caixa de entrada
+    entry = tk.Entry(janela, width=100)  # Aumenta o tamanho da caixa de entrada
     entry.pack()
 
     # Botão de envio
