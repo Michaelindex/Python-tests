@@ -16,17 +16,19 @@ def adivinhar_numero():
             resultado_label.config(text="Um pouco mais")
         else:
             resultado_label.config(text=f"BOAA! Você acertou em {tentativas} tentativa(s)!")
+        
+        entry.delete(0, tk.END)  # Limpa o valor inserido
 
     # Configuração da janela principal
     janela = tk.Tk()
     janela.title("Jogo de Adivinhação")
-    janela.geometry("300x200")
+    janela.geometry("100x100")
 
     # Rótulo e campo de entrada
     instrucao_label = tk.Label(janela, text="Digite um número de 1 a 100:")
     instrucao_label.pack()
 
-    entry = tk.Entry(janela)
+    entry = tk.Entry(janela, width=20)  # Aumenta o tamanho da caixa de entrada
     entry.pack()
 
     # Botão de envio
@@ -37,7 +39,7 @@ def adivinhar_numero():
     resultado_label = tk.Label(janela, text="")
     resultado_label.pack()
 
-    # Inicia a interface gráfica
+    # Inicia a interface gráfica 
     janela.mainloop()
 
 adivinhar_numero()
