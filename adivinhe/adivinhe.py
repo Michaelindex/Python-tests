@@ -22,7 +22,7 @@ def adivinhar_numero():
     # Configuração da janela principal
     janela = tk.Tk()
     janela.title("Jogo de Adivinhação")
-    janela.geometry("100x100")
+    janela.geometry("200x100")
 
     # Rótulo e campo de entrada
     instrucao_label = tk.Label(janela, text="Digite um número de 1 a 100:")
