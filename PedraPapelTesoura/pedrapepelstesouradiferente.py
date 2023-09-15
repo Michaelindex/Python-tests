@@ -13,7 +13,7 @@ while opcao.upper()=='S':
     [2] Tesoura
     Digite sua escolha: '''))
 
-    pecas = ("Padra", "Papel", "TEsoura")
+    pecas = ("Padra", "Papel", "Tesoura")
 
     if(jogador > 2):
         resultado = "Você não escolheu um item correto !!!"
@@ -29,3 +29,4 @@ while opcao.upper()=='S':
         )
 
     print(resultado[jogada])
+    opcao=input('Jogar novamente? Aperte S(sim) para jogar novamente.')
