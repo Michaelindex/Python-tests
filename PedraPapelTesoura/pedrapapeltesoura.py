@@ -33,5 +33,3 @@ while usr != "win":
         print("Você venceu por escolher:", usr, "x", numeroMaquina)
         usr = "win"
 
-
-
