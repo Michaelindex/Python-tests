@@ -28,5 +28,5 @@ while opcao.upper()=='S':
             "O computador ganhou"
         )
 
-    print(resultado[jogada])
+    print(resultado[jogador])
     opcao=input('Jogar novamente? Aperte S(sim) para jogar novamente.')
