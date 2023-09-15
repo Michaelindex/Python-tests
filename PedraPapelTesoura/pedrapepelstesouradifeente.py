@@ -19,4 +19,12 @@ while opcao.upper()=='S':
         resultado = "Você não escolheu um item correto !!!"
     else:
         print('Voce escolheu {}' . format(pecas[jogador]))
-        print('O computador escolheu')
+        print('O computador escolheu: {}' . format(pecas[computador]))
+        tabela = ((0,1,-1),(-1,0,1),(1,-1,0))
+        jogada = tabela[computador][jogador]
+        resultado=(
+            "Deu empate vocês escolhem a mesma peça",
+            "Você ganhou!",
+            "O computador ganhou"
+        )
+        
