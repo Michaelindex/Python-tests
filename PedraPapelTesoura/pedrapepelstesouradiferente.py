@@ -27,4 +27,5 @@ while opcao.upper()=='S':
             "Você ganhou!",
             "O computador ganhou"
         )
-        
+
+    print(resultado[jogada])
