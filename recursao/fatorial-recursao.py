@@ -1,4 +1,6 @@
 fatorial = int(input("Informe um número inteiro: "))
-i = 1
-for i in range(fatorial):
-    print(i * fatorial)
+abc = 1
+for a in range(fatorial):
+    a += 1
+    abc = abc * a
+    print(abc)
