@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- Preloader -->
+    {% include 'partials/menu.html' %}
+        <!-- Receipe Content Area -->
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="receipe-slider owl-carousel">
+                {% if lanche.foto_lanche== '' %}
+                    <img src="{% static 'img/bg-img/tomate_banner.jpg' %}"> 
+                {% else %}
+                    <img src="{{lanche.foto_lanche.url}}" alt="">
+                {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="receipe-content-area">
+            <div class="container">
+                {% if lanche %}
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <div class="receipe-headline my-5">
+                            <span>30 de Fevereiro, 2023</span>
+                            <h2>{{lanche.nome}}</h2>
+                            <div class="receipe-duration">
+                                <h6>Preço: {{lanche.preco}}</h6>
+                                <h6>Categoria: {{lanche.categoria}}</h6>
+                                <h6>Ingredientes: {{lanche.ingredientes}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="row">
+                    <div class="col-12 col-lg-8">
+                        <!-- Single Preparation Step -->
+                        <div class="single-preparation-step d-flex">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui. Suspendisse potenti. Vestibulum ac pellentesque tortor. Aenean congue sed metus in iaculis. Cras a tortor enim. Phasellus posuere vestibulum ipsum, eget lobortis purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
+                        </div>
+                    </div>
+
+                    <!-- Ingredientes -->
+                    <div class="col-12 col-lg-4">
+                        <div class="ingredients">
+                            <h4>Resumo</h4>
+                            <div class="ingredients">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui. Suspendisse potenti. Vestibulum ac pellentesque tortor. Aenean congue sed metus in iaculis. Cras a tortor enim. Phasellus posuere vestibulum ipsum, eget lobortis purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
+                            </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Ingredientes -->
+        
+        <!-- ##### Footer Area Start ##### -->
+        {% include 'partials/footer.html' %}
+    <!-- ##### Footer Area Start ##### -->
+
+
+{% endblock %}
