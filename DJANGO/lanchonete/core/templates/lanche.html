@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="receipe-slider owl-carousel">
-                {% if lanche.foto_lanche== '' %}
+                {% if lanche.foto_lanche == '' %}
                     <img src="{% static 'img/bg-img/tomate_banner.jpg' %}"> 
                 {% else %}
                     <img src="{{lanche.foto_lanche.url}}" alt="">
