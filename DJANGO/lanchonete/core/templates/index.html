@@ -16,7 +16,7 @@
                         {% if lanche.foto_lanche == '' %}
                             <img src="{% static 'img/bg-img/foto_receita.png' %}" alt="">
                         {% else %}
-                        
+                        <img src="{{ lanche.foto_lanche.url }}" alt="">
                         {% endif %}
                         <div class="receipe-content">
                             <a href="{% url 'lanche' lanche.id %}">
