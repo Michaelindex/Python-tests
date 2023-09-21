@@ -14,9 +14,9 @@
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="single-best-receipe-area mb-30">
                         {% if lanche.foto_lanche == '' %}
-                            <img src="{% static 'img/bg-img/foto_receita.png' %}" alt="">
+                        <img src="{% static 'img/bg-img/foto_receita.png' %}" alt="" style="width: 100%;">
                         {% else %}
-                        <img src="{{ lanche.foto_lanche.url }}" alt="">
+                        <img src="{{ lanche.foto_lanche.url }}" alt="" style="width: 100%;">
                         {% endif %}
                         <div class="receipe-content">
                             <a href="{% url 'lanche' lanche.id %}">
