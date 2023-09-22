@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    
+    <!-- ##### Header Area End ##### -->
+    {% include 'partials/menu.html' %}
+     <!-- ##### Best Receipe Area Start ##### -->
+     <section class="best-receipe-area">
+        <div class="container">
+            <div class="row">
+                <!-- Single Best Receipe Area -->
+            {% if lista_lanches %}
+                {% for lanche in lista_lanches %}
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-best-receipe-area mb-30">
+                        {% if lanche.foto_lanche == '' %}
+                        <img src="{% static 'img/bg-img/foto_receita.png' %}" alt="" style="width: 100%;">
+                        {% else %}
+                        <img src="{{ lanche.foto_lanche.url }}" alt="" style="width: 100%;">
+                        {% endif %}
+                        <div class="receipe-content">
+                            <a href="{% url 'lanche' lanche.id %}">
+                                <h5>{{lanche.nome}}</h5>
+                                <p><strong>Preço: </strong>{{lanche.preco}}</p>
+                                <p><strong>Categoria: </strong>{{lanche.categoria}}</p>
+                                <p><strong>Ingredientes: </strong>{{lanche.ingredientes}}</p>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% endif %}
+
+            </div>
+        </div>
+    </section>
+    <!-- ##### Best Receipe Area End ##### -->
+
+
+
+    <!-- ##### Footer Area Start ##### -->
+    {% include 'partials/footer.html' %} 
+    <!-- ##### Footer Area Start ##### -->
+    {% endblock %}
+
+
