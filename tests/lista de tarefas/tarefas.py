@@ -1,5 +1,6 @@
 import sqlite3#CHATGPT
 import keyboard#CHATGPT
+#TUDO QUE FOI FEITO COM A AJUDA DO CHATGPT ESTÁ COM O '#CHATGPT' NA FRENTE.
 
 #Conectar ao banco de dados ( ou criar um novo )#CHATGPT
 conn = sqlite3.connect('TAREFAS.db')#CHATGPT
