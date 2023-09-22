@@ -17,24 +17,32 @@ def consulta():
 
 #Inserir dados #CHATGPT
 def adicionar():
-    titulo = input("Digite o título da tarefa.")
-    corpo = input("Digite o corpo da tarefa")
+    titulo = input("Digite o título da tarefa: ")
+    corpo = input("Digite o corpo da tarefa: ")
     cursor.execute('INSERT INTO tarefas (titulo, corpo) VALUES (?, ?)',(titulo, corpo)) #CHATGPT
-    sair = input(f"Se deseja continuar aperte 'ENTER'\nSe deseja parar digite 'ESC'\nFaça: ")
+    print(f"Se deseja continuar aperte 'ENTER'\nSe deseja parar digite 'ESC'\nFaça: ")
     event = keyboard.read_event()#CHATGPT
-
+    if event.event_type == keyboard.KEY_DOWN:#CHATGPT
+        if event.name == 'enter':#CHATGPT
+            adicionar()#CHATGPT
+        elif event.name == 'esc':#CHATGPT
+            print("SAINDO...")#CHATGPT
+            app()
+        else:
+            print("Refaça!")
+            adicionar()
 
 #Remover dados
 def remover():
     consulta()
-    removid = print("Digite o ID da tarefa que você deseja remover")
+    removid = input("Digite o ID da tarefa que você deseja remover")
     cursor.execute('DELETE FROM tarefas WHERE id = ?', (removid))
     print("REMOVIDO !!!")
     app()
 
 def app():
-    print("App de Tarefas - 2023v1")
-    desejo = int(input("O que você quer fazer no seu App de Tarefas?\n1 - Consultar\n2 - Adicionar\n3 - Remover\n4 - Sair"))
+    print("\n\n\nApp de Tarefas - 2023v1")
+    desejo = int(input("O que você quer fazer no seu App de Tarefas?\n1 - Consultar\n2 - Adicionar\n3 - Remover\n4 - Sair\n"))
     if desejo == 1:
         consulta()
     elif desejo == 2:
