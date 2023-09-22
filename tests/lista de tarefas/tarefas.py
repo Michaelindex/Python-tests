@@ -20,21 +20,21 @@ def adicionar():
     titulo = input("Digite o título da tarefa: ")
     corpo = input("Digite o corpo da tarefa: ")
     cursor.execute('INSERT INTO tarefas (titulo, corpo) VALUES (?, ?)', (titulo, corpo))
-    
+    conn.commit()
     print(f"Se deseja continuar aperte qualquer coisa\nSe deseja voltar digite 'ESC'\nFaça: ")
     
-    # Esperar uma entrada do teclado antes de chamar evento()
-    keyboard.read_event(suppress=True)
+    # Esperar uma entrada do teclado antes de chamar evento()#CHATGPT
+    keyboard.read_event(suppress=True)#CHATGPT
     
-    def evento():
-        event = keyboard.read_event()
-        if event.name == 'esc':
-            print("Saindo...")
-            app()
-        else:
-            adicionar()
+    def evento():#CHATGPT
+        event = keyboard.read_event()#CHATGPT
+        if event.name == 'esc':#CHATGPT
+            print("Saindo...")#CHATGPT
+            app()#CHATGPT
+        else:#CHATGPT
+            adicionar()#CHATGPT
     
-    evento()
+    evento()#CHATGPT
     # titulo = input("Digite o título da tarefa: ")
     # corpo = input("Digite o corpo da tarefa: ")
     # cursor.execute('INSERT INTO tarefas (titulo, corpo) VALUES (?, ?)',(titulo, corpo)) #CHATGPT
@@ -60,11 +60,35 @@ def adicionar():
 
 #Remover dados
 def remover():
-    consulta()
-    removid = input("Digite o ID da tarefa que você deseja remover")
-    cursor.execute('DELETE FROM tarefas WHERE id = ?', (removid))
-    print("REMOVIDO !!!")
-    app()
+    cursor.execute('SELECT * FROM tarefas') #CHATGPT
+    for row in cursor.fetchall(): #CHATGPT
+        print(row) #CHATGPT
+    
+    # Solicitar o ID da tarefa a ser removida e garantir que seja um número inteiro válido#CHATGPT
+    while True:#CHATGPT
+        removid = input("Digite o ID da tarefa que você deseja remover: ")#CHATGPT
+        if removid.isdigit():#CHATGPT
+            removid = int(removid)#CHATGPT
+            break#CHATGPT
+        else:#CHATGPT
+            print("Por favor, digite um número válido.")#CHATGPT
+
+    # Verificar se o ID existe antes de executar a exclusão#CHATGPT
+    cursor.execute('SELECT * FROM tarefas WHERE id = ?', (removid,))#CHATGPT
+    if cursor.fetchone() is not None:#CHATGPT
+        cursor.execute('DELETE FROM tarefas WHERE id = ?', (removid,))#CHATGPT
+        conn.commit()#CHATGPT
+        print("REMOVIDO !!!")#CHATGPT
+    else:#CHATGPT
+        print("ID não encontrado.")#CHATGPT
+
+    app()#CHATGPT
+    # consulta()
+    # removid = input("Digite o ID da tarefa que você deseja remover")
+    # cursor.execute('DELETE FROM tarefas WHERE id = ?', (removid))
+    # conn.commit()
+    # print("REMOVIDO !!!")
+    # app()
 
 def app():
     print("\n\n\nApp de Tarefas - 2023v1")
