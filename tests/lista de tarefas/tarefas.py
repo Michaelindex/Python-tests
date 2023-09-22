@@ -41,7 +41,8 @@ def app():
     elif desejo == 4:
         print("Tchau !")
     else:
-        print("Escolha ")
+        print("Escolha um numero entre 1 a 4")
+        app()
 
         
 
