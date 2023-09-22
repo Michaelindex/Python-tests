@@ -109,5 +109,3 @@ def app():
 app()
 
 conn.close() #CHATGPT
-
-
