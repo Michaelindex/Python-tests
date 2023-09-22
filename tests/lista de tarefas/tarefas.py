@@ -13,9 +13,13 @@ cursor.execute('INSERT INTO tarefas (titulo, corpo) VALUES (?, ?)',('Estudos', '
 cursor.execute('INSERT INTO tarefas (titulo, corpo) VALUES (?, ?)',('Trabalho', 'Preciso estudar Pfsense')) #CHATGPT
 cursor.execute('INSERT INTO tarefas (titulo, corpo) VALUES (?, ?)',('Trabalho', 'Preciso criar o desenho da Infra')) #CHATGPT
 
+#Consultar dados
+cursor.execute('SELECT * FROM tarefas')
+for row in cursor.fetchall():
+    print(row)
 
 
 
-print("-----LISTANDO SUAS TAREFAS-----")
-def tarefas():
-    escolha = int(input("Digite o que você deseja fazer\n1 - Consultar tarefas\n2 - Adicionar tarefas\n3 - Remover tarefas"))
+# print("-----LISTANDO SUAS TAREFAS-----")
+# def tarefas():
+#     escolha = int(input("Digite o que você deseja fazer\n1 - Consultar tarefas\n2 - Adicionar tarefas\n3 - Remover tarefas"))
