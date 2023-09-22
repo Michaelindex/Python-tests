@@ -25,7 +25,7 @@ def calculadora():
 
 def refaz():
     fim = input(f"Deseja recomeçar? Digite 'sim' ou 's'\nSe não só digite outra coisa: ".upper())
-    if fim == 'SIM' or 'S':
+    if fim == 'SIM' or fim == 'S':
         calculadora()
     else:
         print('Thank You!!!')
