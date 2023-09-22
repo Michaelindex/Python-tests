@@ -19,18 +19,44 @@ def consulta():
 def adicionar():
     titulo = input("Digite o título da tarefa: ")
     corpo = input("Digite o corpo da tarefa: ")
-    cursor.execute('INSERT INTO tarefas (titulo, corpo) VALUES (?, ?)',(titulo, corpo)) #CHATGPT
-    print(f"Se deseja continuar aperte 'ENTER'\nSe deseja parar digite 'ESC'\nFaça: ")
-    event = keyboard.read_event()#CHATGPT
-    if event.event_type == keyboard.KEY_DOWN:#CHATGPT
-        if event.name == 'enter':#CHATGPT
-            adicionar()#CHATGPT
-        elif event.name == 'esc':#CHATGPT
-            print("SAINDO...")#CHATGPT
+    cursor.execute('INSERT INTO tarefas (titulo, corpo) VALUES (?, ?)', (titulo, corpo))
+    
+    print(f"Se deseja continuar aperte qualquer coisa\nSe deseja voltar digite 'ESC'\nFaça: ")
+    
+    # Esperar uma entrada do teclado antes de chamar evento()
+    keyboard.read_event(suppress=True)
+    
+    def evento():
+        event = keyboard.read_event()
+        if event.name == 'esc':
+            print("Saindo...")
             app()
         else:
-            print("Refaça!")
             adicionar()
+    
+    evento()
+    # titulo = input("Digite o título da tarefa: ")
+    # corpo = input("Digite o corpo da tarefa: ")
+    # cursor.execute('INSERT INTO tarefas (titulo, corpo) VALUES (?, ?)',(titulo, corpo)) #CHATGPT
+    # print(f"Se deseja continuar aperte qualquer coisa\nSe deseja voltar digite 'ESC'\nFaça: ")
+    # def evento():
+    #     event = keyboard.read_event()#CHATGPT
+    #     if event.name == 'esc':#CHATGPT
+    #         print("Saindo...")#CHATGPT
+    #         app()#CHATGPT
+    #     else:#CHATGPT
+    #         adicionar()#CHATGPT
+    # evento()
+    # event = keyboard.read_event()#CHATGPT
+    # if event.event_type == keyboard.KEY_DOWN:#CHATGPT
+    #     if event.name == 'enter':#CHATGPT
+    #         adicionar()#CHATGPT
+    #     elif event.name == 'esc':#CHATGPT
+    #         print("SAINDO...")#CHATGPT
+    #         app()
+    #     else:
+    #         print("Refaça!")
+    #         adicionar()
 
 #Remover dados
 def remover():
