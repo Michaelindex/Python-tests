@@ -7,12 +7,12 @@ def clique_botao():
 # Criar a janela principal
 janela = tk.Tk()
 janela.geometry("300x200")
-root = tkinter.Tk()
 janela.eval('tk::PlaceWindow . center')
 janela.title("Exemplo Tkinter")
 
 # Criar um rótulo
 label = tk.Label(janela, text="---BEM VINDO AO GERADOR DE SENHAS 2000v1---")
+label.pack(padx=100,pady=5)#AQUI ESTA DANDO ERRO
 label.pack()
 
 # Criar um botão
