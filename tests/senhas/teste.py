@@ -2,12 +2,16 @@ import random
 import pyperclip
 import string
 
-def randomizar():
+def randomizarint():
     tamanho = 12
     senha = ''
     for i in range(tamanho):
         senharamdom = random.randint(1,9)
         senha = str(senha + str(senharamdom))
-        print(senha)
+    pyperclip.copy(senha)
 
-randomizar()
+#randomizarint()
+
+def randomizarstr():
+    letras = string.ascii_letters
+    
