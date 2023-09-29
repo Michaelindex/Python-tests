@@ -13,10 +13,10 @@
                 {% for lanche in lista_lanches %}
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="single-best-receipe-area mb-30">
-                        {% if lanche.foto_lanche == '' %}
-                        <img src="{% static 'img/bg-img/foto_receita.png' %}" alt="" style="width: 100%;">
+                        {% if lanche.foto_lanche == '' %}  
+                        <img src="{% static 'img/bg-img/foto_receita.png' %}" alt="">
                         {% else %}
-                        <img src="{{ lanche.foto_lanche.url }}" alt="" style="width: 100%;">
+                        <img src="{{ lanche.foto_lanche.url }}" alt="">
                         {% endif %}
                         <div class="receipe-content">
                             <a href="{% url 'lanche' lanche.id %}">
@@ -30,6 +30,8 @@
                     </div>
                 </div>
                 {% endfor %}
+            {% else %} 
+                <div class="col-12 col-sm-6 col-lg-4"> <p>Nenum lanche foi encontrado!</p> </div>
             {% endif %}
 
             </div>
@@ -37,7 +39,7 @@
     </section>
     <!-- ##### Best Receipe Area End ##### -->
 
-
+    {% include 'partials/paginator.html' %}
 
     <!-- ##### Footer Area Start ##### -->
     {% include 'partials/footer.html' %} 

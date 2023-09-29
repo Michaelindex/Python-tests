@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'core',
     'lanche',
     'funcionario',
+    'usuarios',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

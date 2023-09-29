@@ -1,5 +1,6 @@
 from django.db import models
-from funcionario.models import Funcionario
+#from funcionario.models import Funcionario
+from django.contrib.auth.models import User
 from datetime import datetime
 import uuid
 def get_file_path(_instance, filename):
@@ -9,7 +10,8 @@ def get_file_path(_instance, filename):
 
 # Create your models here.
 class Lanche(models.Model):
-    funcionario = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
+    #funcionario = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE) 
     nome=models.CharField('Nome', max_length=100)
     preco=models.DecimalField('Preco', decimal_places=2, max_digits=8)
     categoria=models.CharField('Categoria', max_length=20, default='cat')
