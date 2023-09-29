@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 
+
 # Create your views here.
 def login(request):
     if request.method == 'POST':
@@ -28,7 +29,14 @@ def cadastro(request):
     pass
 
 def dashboard(request):
-    pass
+    if request.user.is_authenticated:
+        id = request.user.id
+        lanche = Lanche.objects.order_by('-date_lanche').filter(usuario=id)
+        paginator = paginator(lanche, 9)
+        page = request.GET.get('page')
+        lanche = paginator.get_page(page)
+        dados = { 'lista_lanches' : lanche }
+        return render(request, 'dashboard.html', dados)
 
 def logout(request):
     pass
