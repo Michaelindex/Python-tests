@@ -1,45 +1,51 @@
-from django.shortcuts import render
 from django.shortcuts import render, redirect
+from django.contrib import auth, messages
 from django.contrib.auth.models import User
-
-
+from lanche.models import Lanche
+from django.core.paginator import Paginator
 # Create your views here.
 def login(request):
     if request.method == 'POST':
-        email = request.POST['email']
+        email = request.POST['email'] 
         senha = request.POST['senha']
         if email == "" or senha == "":
-            messages.error(request, "Os Campos email e senha não podem ficar")
+            messages.error(request,'Os campos email e senha não podem ficar em branco' )
             return redirect('login')
+
         if User.objects.filter(email=email).exists():
             nome = User.objects.filter(email=email).values_list( 'username', flat=True).get()
-            user = auth.authenticate(request, username=nome, poassword=senha)
-            print(nome, user)
+            user = auth.authenticate(request, username=nome, password=senha)
+
             if user is not None:
-                auth.login(request, user)
-                messages.success(request, 'Login realizado com sucesso')
+                auth.login(request, user) 
+                messages.success(request,'Login realizado com sucesso') 
                 return redirect('dashboard')
             else:
-                messages.error(request,'A senha está incorreta!')
+                messages.error(request,'A senha está incorreta!' )      
         else:
-            messages.error(request, 'Digite um e-mail válido!')
+            messages.error(request,'Digite um e-mail válido' )        
     return render(request, 'login.html')
 
 def cadastro(request):
-    pass
+    if request.method == 'POST':
+        pass
+    else:
+        return render(request, 'cadastro.html')
+    return redirect('login')
 
 def dashboard(request):
     if request.user.is_authenticated:
         id = request.user.id
         lanche = Lanche.objects.order_by('-date_lanche').filter(usuario=id)
-        paginator = paginator(lanche, 9)
-        page = request.GET.get('page')
+        paginator = Paginator(lanche, 9) 
+        page = request.GET.get('page') 
         lanche = paginator.get_page(page)
         dados = { 'lista_lanches' : lanche }
         return render(request, 'dashboard.html', dados)
 
 def logout(request):
-    pass
+    auth.logout(request)
+    return redirect('index')
 
 def cria_lanche(request):
     pass

@@ -1,63 +1,47 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
-    <!-- Preloader -->
+    
+    <!-- ##### Header Area End ##### -->
     {% include 'partials/menu.html' %}
-        <!-- Receipe Content Area -->
-        
-        <div class="row">
-            <div class="col-12">
-                <div class="receipe-slider owl-carousel">
-                {% if lanche.foto_lanche == '' %}
-                    <img src="{% static 'img/bg-img/tomate_banner.jpg' %}"> 
-                {% else %}
-                    <img src="{{ lanche.foto_lanche.url }}"> 
+     <!-- ##### Best Receipe Area Start ##### -->
+     <section class="best-receipe-area">
+        <div class="container">
+            <div class="row">
+                <!-- Single Best Receipe Area -->
+            {% if lista_lanches %}
+                {% for lanche in lista_lanches %}
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-best-receipe-area mb-30">
+                    {% if lanche.foto_lanche == '' %} 
+                        <img style="width: 200px; height: 200px;" src="{% static 'img/bg-img/foto_receita.png' %}" alt="">
+                    {% else %}
+                        <img src="{{ lanche.foto_lanche.url }}" style="width: 200px; height: 200px;" alt="">
                     {% endif %}
+                        <div class="receipe-content">
+                            <a href="{% url 'lanche' lanche.id %}">
+                                <h5>{{lanche.nome}}</h5>
+                                <p><strong>Preço: </strong>{{lanche.preco}}</p>
+                                <p><strong>Categoria: </strong>{{lanche.categoria}}</p>
+                                <p><strong>Ingredientes: </strong>{{lanche.ingredientes}}</p>
+
+                            </a>
+                        </div>
+                    </div>
                 </div>
+                {% endfor %}
+            {% endif %}
+
             </div>
         </div>
+    </section>
+    <!-- ##### Best Receipe Area End ##### -->
 
-        <div class="receipe-content-area">
-            <div class="container">
-                {% if lanche %}
-                <div class="row">
-                    <div class="col-12 col-md-8">
-                        <div class="receipe-headline my-5">
-                            <span>30 de Fevereiro, 2023</span>
-                            <h2>{{lanche.nome}}</h2>
-                            <div class="receipe-duration">
-                                <h6>Preço: {{lanche.preco}}</h6>
-                                <h6>Categoria: {{lanche.categoria}}</h6>
-                                <h6>Ingredientes: {{lanche.ingredientes}}</h6>
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
-                <div class="row">
-                    <div class="col-12 col-lg-8">
-                        <!-- Single Preparation Step -->
-                        <div class="single-preparation-step d-flex">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui. Suspendisse potenti. Vestibulum ac pellentesque tortor. Aenean congue sed metus in iaculis. Cras a tortor enim. Phasellus posuere vestibulum ipsum, eget lobortis purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-                        </div>
-                    </div>
+    {% include 'partials/paginator.html' %}
 
-                    <!-- Ingredientes -->
-                    <div class="col-12 col-lg-4">
-                        <div class="ingredients">
-                            <h4>Resumo</h4>
-                            <div class="ingredients">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui. Suspendisse potenti. Vestibulum ac pellentesque tortor. Aenean congue sed metus in iaculis. Cras a tortor enim. Phasellus posuere vestibulum ipsum, eget lobortis purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-                            </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Ingredientes -->
-        
-        <!-- ##### Footer Area Start ##### -->
-        {% include 'partials/footer.html' %}
     <!-- ##### Footer Area Start ##### -->
+    {% include 'partials/footer.html' %} 
+    <!-- ##### Footer Area Start ##### -->
+    {% endblock %}
 
 
-{% endblock %}
