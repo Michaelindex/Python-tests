@@ -18,7 +18,7 @@ class Lanche(models.Model):
     ingredientes = models.TextField('Ingredientes', max_length=300)
     date_lanche = models.DateTimeField(default=datetime.now, blank=True)
     foto_lanche = models.ImageField(upload_to=get_file_path, blank=True)
-    publicado = models.BooleanField(default=False)
+    publicado = models.BooleanField(default=True)
     def __str__(self):
         return self.nome
     

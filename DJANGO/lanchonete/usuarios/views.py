@@ -61,8 +61,10 @@ def cria_lanche(request):
     else:
         return render(request, 'cria_lanche.html')
 
-def deleta_lanche(request):
-    pass
+def deleta_lanche(request, lanche_id):
+    lanche = get_object_or_404(Lanche,pk=lanche_id)
+    lanche.delete()
+    return redirect('dashboard')
 
 def edita_lanche(request):
     pass
