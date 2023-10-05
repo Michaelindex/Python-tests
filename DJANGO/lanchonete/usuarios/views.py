@@ -48,7 +48,14 @@ def logout(request):
     return redirect('index')
 
 def cria_lanche(request):
-    pass
+    if request.method == 'POST':
+        nome = request.POST['nome']
+        preco = request.POST['preco']
+        categoria = request.POST['categoria']
+        ingredientes = request.POST['ingredientes']
+        foto_lanche = request.FILES['foto_lanche']
+    else:
+        return render(request, 'cria_lanche.html')
 
 def deleta_lanche(request):
     pass
