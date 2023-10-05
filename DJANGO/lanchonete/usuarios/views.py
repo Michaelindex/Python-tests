@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import auth, messages
 from django.contrib.auth.models import User
 from lanche.models import Lanche
@@ -54,6 +54,10 @@ def cria_lanche(request):
         categoria = request.POST['categoria']
         ingredientes = request.POST['ingredientes']
         foto_lanche = request.FILES['foto_lanche']
+        user = get_object_or_404(User, pk=request.user.id)
+        lanche = Lanche.objects.create(usuario=user, nome=nome, preco=preco, ingredientes=ingredientes, categoria=categoria, foto_lanche=foto_lanche)
+        lanche.save()
+        return redirect('dashboard')
     else:
         return render(request, 'cria_lanche.html')
 
